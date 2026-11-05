@@ -1,6 +1,6 @@
 export default defineContentScript({
-  matches: ['*://*.google.com/*'],
+  matches: ['https://www.tbank-online.com/terminal/*'],
   main() {
-    console.log('Hello content.');
+    console.log('[T-SafetyNet] Контент-скрипт успешно загружен в терминале Т-Банка.');
   },
 });
