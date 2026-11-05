@@ -6,12 +6,12 @@ import { useQuizStore } from '@/store/quizStore';
 
 import { QuizQuestion } from '@/types';
 
-interface AcademyQuizProps {
+interface KnowledgeBaseQuizProps {
   articleId: string;
   quiz: QuizQuestion[];
 }
 
-const AcademyQuiz = ({ articleId, quiz }: AcademyQuizProps) => {
+const KnowledgeBaseQuiz = ({ articleId, quiz }: KnowledgeBaseQuizProps) => {
   const { currentQuestionIndex, answers, startQuiz, setAnswer, nextQuestion, resetQuiz } =
     useQuizStore();
   const currentQuestion = quiz[currentQuestionIndex];
@@ -119,4 +119,4 @@ const AcademyQuiz = ({ articleId, quiz }: AcademyQuizProps) => {
   );
 };
 
-export default AcademyQuiz;
+export default KnowledgeBaseQuiz;

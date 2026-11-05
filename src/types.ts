@@ -1,5 +1,5 @@
 export const PAGES = {
-  ACADEMY: 'academy',
+  KNOWLEDGE_BASE: 'knowledge-base',
 } as const;
 
 export type PageType = (typeof PAGES)[keyof typeof PAGES];

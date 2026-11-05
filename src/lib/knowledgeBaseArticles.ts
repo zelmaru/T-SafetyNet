@@ -1,6 +1,6 @@
 import { ARTICLE_CATEGORIES, EducationalArticle } from '@/types';
 
-export const ACADEMY_ARTICLES: EducationalArticle[] = [
+export const KNOWLEDGE_BASE_ARTICLES: EducationalArticle[] = [
   {
     id: 'paper-trading-essentials',
     category: ARTICLE_CATEGORIES.BASICS,

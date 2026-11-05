@@ -7,10 +7,10 @@ import {
   InputGroupInput,
 } from '@/components/ui/input-group';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { ACADEMY_ARTICLES } from '@/lib/academyArticles';
+import { KNOWLEDGE_BASE_ARTICLES } from '@/lib/knowledgeBaseArticles';
 import { EducationalArticle, ArticleCategoryFilterType, ARTICLE_CATEGORIES } from '@/types';
 import { ChevronLeft, Search, X } from 'lucide-react';
-import AcademyQuiz from './AcademyQuiz';
+import KnowledgeBaseQuiz from './KnowledgeBaseQuiz';
 import { useArticleStore } from '@/store/articleStore';
 
 const TOGGLE_CATEGORIES: { id: ArticleCategoryFilterType; label: string }[] = [
@@ -19,7 +19,7 @@ const TOGGLE_CATEGORIES: { id: ArticleCategoryFilterType; label: string }[] = [
   { id: ARTICLE_CATEGORIES.PSYCHOLOGY, label: 'Психология' },
   { id: ARTICLE_CATEGORIES.RISK, label: 'Риски' },
 ];
-const AcademyPage = () => {
+const KnowledgeBasePage = () => {
   const { activeArticle, setActiveArticle } = useArticleStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategoryId, setSelectedCategoryId] = useState('all');
@@ -46,7 +46,7 @@ const AcademyPage = () => {
 
   const filteredArticles = useMemo(() => {
     const normalizedSearchQuery = searchQuery.trim().toLowerCase();
-    return ACADEMY_ARTICLES.filter(
+    return KNOWLEDGE_BASE_ARTICLES.filter(
       (article) => selectedCategoryId === 'all' || article.category === selectedCategoryId,
     ).filter((article) =>
       [article.id, article.title, article.summary, article.content, article.conclusion]
@@ -135,7 +135,7 @@ const AcademyPage = () => {
           <p className="font-semibold">{activeArticle.conclusion}</p>
         </article>
         <section>
-          <AcademyQuiz
+          <KnowledgeBaseQuiz
             key={activeArticle.id} // on article change the state of the component will reset
             articleId={activeArticle.id}
             quiz={activeArticle.quiz}
@@ -179,4 +179,4 @@ const AcademyPage = () => {
   );
 };
 
-export default AcademyPage;
+export default KnowledgeBasePage;
